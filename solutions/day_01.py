@@ -1,4 +1,4 @@
-from solutions.util.io import read_ints
+from utils.io import read_ints
 
 def part_1(lines):
     increases = -1

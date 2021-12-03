@@ -9,3 +9,7 @@ def read_actions(path):
             tokens = line.rstrip().split()
             actions.append((tokens[0], int(tokens[1])))
         return actions
+
+def read_strings(path):
+    with open(path, 'r') as f:
+        return [line.rstrip() for line in f.readlines()]

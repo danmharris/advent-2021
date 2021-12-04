@@ -1,5 +1,5 @@
 import pytest
-from utils.io import read_ints, read_actions
+from utils.io import read_ints, read_actions, read_strings
 
 
 @pytest.fixture
@@ -19,3 +19,8 @@ def test_read_actions(input_file):
         ("left", 3),
     ]
     assert read_actions(str(input_file)) == expected
+
+def test_read_strings(input_file):
+    input_file.write_text("a\nb\nc\n")
+    expected = ["a", "b", "c"]
+    assert read_strings(str(input_file)) == expected

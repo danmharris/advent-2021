@@ -13,3 +13,7 @@ def read_actions(path):
 def read_strings(path):
     with open(path, 'r') as f:
         return [line.rstrip() for line in f.readlines()]
+
+def read_csv(path):
+    with open(path, 'r') as f:
+        return [int(val) for val in f.readline().rstrip().split(',')]

@@ -1,5 +1,6 @@
 import pytest
-from utils.io import read_ints, read_actions, read_strings
+
+from utils.io import read_ints, read_actions, read_strings, read_csv
 
 
 @pytest.fixture
@@ -24,3 +25,8 @@ def test_read_strings(input_file):
     input_file.write_text("a\nb\nc\n")
     expected = ["a", "b", "c"]
     assert read_strings(str(input_file)) == expected
+
+def test_read_csv(input_file):
+    input_file.write_text("1,2,3,4,5,6\n")
+    expected = [1, 2, 3, 4, 5, 6]
+    assert read_csv(input_file) == expected

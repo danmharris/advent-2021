@@ -26,14 +26,9 @@ def _reproduce_counts(timers, days):
         counts[timer] = counts[timer] + 1
 
     for _ in range(0, days):
-        new_counts = [0 for i in range(0, 9)]
-        for timer, count in enumerate(counts):
-            if timer == 0:
-                new_counts[8] = count
-                new_counts[6] = count
-                continue
-            new_counts[timer-1] = new_counts[timer-1] + count
-        counts = new_counts
+        spawned = counts.pop(0)
+        counts.append(spawned)
+        counts[6] = counts[6] + spawned
     return sum(counts)
 
 

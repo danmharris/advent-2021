@@ -21,7 +21,6 @@ def _reproduce(timers, days):
 
 # Revised idea for part 2 using frequencies rather than tracking each fish
 def _reproduce_counts(timers, days):
-    counts = []
     counts = [0 for i in range(0, 9)]
     for timer in timers:
         counts[timer] = counts[timer] + 1

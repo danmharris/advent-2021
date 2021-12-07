@@ -22,10 +22,7 @@ def part_2(positions):
 
 def _find_cost(current, target):
     diff = abs(current-target)
-    cost = 0
-    for i in range(1, diff+1):
-        cost = cost + i
-    return cost
+    return int(diff * (diff + 1) / 2)
 
 
 if __name__ == '__main__':

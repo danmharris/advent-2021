@@ -17,3 +17,7 @@ def read_strings(path):
 def read_csv(path):
     with open(path, 'r') as f:
         return [int(val) for val in f.readline().rstrip().split(',')]
+
+def read_grid(path):
+    with open(path, 'r') as f:
+        return [[int(val) for val in row.rstrip()] for row in f.readlines()]

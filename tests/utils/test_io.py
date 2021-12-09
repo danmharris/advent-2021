@@ -1,6 +1,6 @@
 import pytest
 
-from utils.io import read_ints, read_actions, read_strings, read_csv
+from utils.io import read_ints, read_actions, read_strings, read_csv, read_grid
 
 
 @pytest.fixture
@@ -30,3 +30,8 @@ def test_read_csv(input_file):
     input_file.write_text("1,2,3,4,5,6\n")
     expected = [1, 2, 3, 4, 5, 6]
     assert read_csv(input_file) == expected
+
+def test_read_grid(input_file):
+    input_file.write_text("01234\n56789\n")
+    expected = [[0, 1, 2, 3, 4], [5, 6, 7, 8, 9]]
+    assert read_grid(input_file) == expected

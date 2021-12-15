@@ -1,4 +1,5 @@
 from utils.io import read_grid
+from utils.math import grid_generator
 
 def part_1(grid):
     flashes = 0
@@ -19,7 +20,7 @@ def _step(grid):
     flashed = []
 
     # Step 1: Increase all by 1. Keep track of those going to flash
-    for x, y in _grid_generator(10, 10):
+    for x, y in grid_generator(10, 10):
         if grid[y][x] == 9:
             flashed.append((x, y))
             flashes += 1
@@ -36,16 +37,10 @@ def _step(grid):
                 grid[cy][cx] += 1
 
     # Step 3: Zero out all flashed values
-    for x, y in _grid_generator(10, 10):
+    for x, y in grid_generator(10, 10):
         if grid[y][x] > 9:
             grid[y][x] = 0
     return flashes
-
-
-def _grid_generator(len_x, len_y):
-    for y in range(0, len_y):
-        for x in range(0, len_x):
-            yield x, y
 
 
 if __name__ == '__main__':

@@ -11,3 +11,10 @@ def transpose(grid):
         for (i, val) in enumerate(row):
             transposed[i].append(val)
     return transposed
+
+def hex_to_bin(hex_string):
+    bin_string = ''
+    for char in hex_string:
+        bin_string += format(int(char, base=16), '04b')
+
+    return bin_string
